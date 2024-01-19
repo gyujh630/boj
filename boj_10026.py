@@ -4,7 +4,6 @@ import sys
 import copy
 from collections import deque
 
-
 def bfs(matrix, visited, x, y, color):
     queue = deque()
     queue.append((x, y))
@@ -25,8 +24,9 @@ def bfs(matrix, visited, x, y, color):
 
 n = int(sys.stdin.readline().rstrip())
 matrix = [list(sys.stdin.readline().rstrip()) for _ in range(n)]
-ab_matrix = copy.deepcopy(matrix)
 
+#색약 matrix 생성
+ab_matrix = copy.deepcopy(matrix)
 for i in range(n):
     for j in range(n):
         if ab_matrix[i][j] == 'G':
@@ -38,6 +38,7 @@ abnormal_count = 0
 visited = [[False] * n for _ in range(n)]
 ab_visited = [[False] * n for _ in range(n)]
 
+#일반
 for i in range(n):
     for j in range(n):
         if matrix[i][j] == 'R' or matrix[i][j] == 'G' or matrix[i][j] == 'B':
@@ -45,6 +46,7 @@ for i in range(n):
                 continue
             normal_count += bfs(matrix, visited, i, j, matrix[i][j])
 
+#색약
 for i in range(n):
     for j in range(n):
           if ab_matrix[i][j] == 'R' or ab_matrix[i][j] == 'B':
