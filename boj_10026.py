@@ -4,11 +4,10 @@ import sys
 import copy
 from collections import deque
 
-def bfs(matrix, visited, x, y, color):
+def bfs(matrix, x, y, color):
     queue = deque()
     queue.append((x, y))
-    visited[x][y] = True
-
+    matrix[x][y] = 'X'
     dx, dy = [1, 0, 0, -1], [0, 1, -1, 0]
 
     while queue:
@@ -16,9 +15,9 @@ def bfs(matrix, visited, x, y, color):
         for i in range(4):
             nx, ny = cur[0] + dx[i], cur[1] + dy[i]
             if 0 <= nx < n and 0 <= ny < n:
-                if matrix[nx][ny] == color and not visited[nx][ny]:
+                if matrix[nx][ny] == color:
                     queue.append((nx, ny))
-                    visited[nx][ny] = True
+                    matrix[nx][ny] = 'X'
     return 1
 
 
@@ -35,23 +34,20 @@ for i in range(n):
 normal_count = 0
 abnormal_count = 0
 
-visited = [[False] * n for _ in range(n)]
-ab_visited = [[False] * n for _ in range(n)]
-
 #일반
 for i in range(n):
     for j in range(n):
         if matrix[i][j] == 'R' or matrix[i][j] == 'G' or matrix[i][j] == 'B':
-            if visited[i][j]:
+            if matrix[i][j] == 'X':
                 continue
-            normal_count += bfs(matrix, visited, i, j, matrix[i][j])
+            normal_count += bfs(matrix, i, j, matrix[i][j])
 
 #색약
 for i in range(n):
     for j in range(n):
           if ab_matrix[i][j] == 'R' or ab_matrix[i][j] == 'B':
-            if ab_visited[i][j]:
+            if ab_matrix[i][j] == 'X':
                 continue
-            abnormal_count += bfs(ab_matrix, ab_visited, i, j, ab_matrix[i][j])
+            abnormal_count += bfs(ab_matrix, i, j, ab_matrix[i][j])
 
 print(normal_count, abnormal_count)
