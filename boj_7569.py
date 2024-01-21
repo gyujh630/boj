@@ -30,6 +30,7 @@ def bfs():
 m, n, h = map(int, sys.stdin.readline().split())
 matrix = [[list(map(int, sys.stdin.readline().split())) for _ in range(n)] for _ in range(h)]
 
+# 익어있는 토마토 넣어두기 (시작점)
 riped_tomatoes = []
 for z in range(h):
     for x in range(n):
