@@ -1,9 +1,9 @@
-#2206번: 벽 부수고 이동하기
+# 2206번: 벽 부수고 이동하기
 
 import sys
 from collections import deque
 
-def dfs(matrix, visited):
+def bfs(matrix, visited):
     queue = deque()
     queue.append((0, 0, 0))
     visited[0][0][0] = 1
@@ -26,9 +26,10 @@ def dfs(matrix, visited):
                         visited[nx][ny][z] = visited[x][y][z] + 1
     return -1
 
+
 n, m = map(int, sys.stdin.readline().split())
 matrix = [list(sys.stdin.readline().rstrip()) for _ in range(n)]
 
 visited = [[[0, 0] for _ in range(m)] for _ in range(n)]
 
-print(dfs(matrix, visited))
+print(bfs(matrix, visited))
