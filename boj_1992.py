@@ -11,6 +11,8 @@ def quad_tree(matrix):
             if matrix[i][j] != start_point:
                 flag = 1
                 break
+        if flag == 1:
+            break
     if flag == 1:
         new_matrices = []
         new_size = size // 2
