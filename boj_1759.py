@@ -10,13 +10,9 @@ def func(select, consonant, vowel):
         if a[i] not in select and a[i] > select[-1]:
             select.append(a[i])
             if a[i] in vowels:
-                vowel += 1
-                func(select, consonant, vowel)
-                vowel -= 1
+                func(select, consonant, vowel + 1)
             else:
-                consonant += 1
-                func(select, consonant, vowel)
-                consonant -= 1
+                func(select, consonant + 1, vowel)
             select.pop()
 
 
