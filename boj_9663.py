@@ -18,7 +18,7 @@ def func(select, current_row):
         total += 1
         return
 
-    for col in range(n):  # 열 순회인 거임?
+    for col in range(n):
         if is_available(select, col):
             select.append(col)
             func(select, current_row+1)

@@ -14,7 +14,7 @@ def count(eggs):
 def func(index, cur_eggs):
     global answer
     if index == n:
-        #카운트 체크
+        # 카운트 체크
         answer = max(answer, count(cur_eggs))
         return
 
