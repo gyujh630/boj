@@ -16,10 +16,10 @@ def quad_tree(matrix):
     if flag == 1:
         new_matrices = []
         new_size = size // 2
-        for k in range(2):  # k = 0,1
+        for k in range(2):
             row_start = k * new_size
             row_end = row_start + new_size
-            for l in range(2):  # l = 0,1
+            for l in range(2):
                 column_start = l * new_size
                 column_end = column_start + new_size
                 new_matrix = [row[column_start:column_end] for row in matrix[row_start:row_end]]

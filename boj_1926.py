@@ -3,6 +3,7 @@
 import sys
 from collections import deque
 
+
 def bfs(map, x, y):
     queue = deque()
     queue.append((x, y))
