@@ -9,8 +9,7 @@ def dfs(start, cur):
             count = len(select)
             return
     else:
-
-    dfs(start, S[cur])
+        dfs(start, S[cur])
 
 
 # T = int(sys.stdin.readline())
